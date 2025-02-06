@@ -16,7 +16,7 @@ A Next.js application that provides trading metrics and analytics through both a
 
 - Node.js 18+ and npm
 - A Telegram bot token (get it from [@BotFather](https://t.me/botfather))
-- A Netlify account for deployment
+- A Vercel account for deployment
 
 ### Local Development
 
@@ -36,18 +36,12 @@ npm install
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
 ```
 
-4. Install Netlify CLI and login:
+4. Run the development server:
 ```bash
-npm install -g netlify-cli
-netlify login
+npm run dev
 ```
 
-5. Run the development server:
-```bash
-netlify dev
-```
-
-6. Open [http://localhost:8888](http://localhost:8888) to view the web interface.
+5. Open [http://localhost:3000](http://localhost:3000) to view the web interface.
 
 ### Telegram Bot Setup
 
@@ -69,38 +63,28 @@ netlify dev
    help - Show help information
    ```
 
-### Netlify Deployment
+### Vercel Deployment
 
 1. Push your code to a GitHub repository
 
-2. Deploy to Netlify:
-   ```bash
-   # Initialize Netlify project
-   netlify init
-   ```
+2. Connect your repository to Vercel:
+   - Go to [Vercel](https://vercel.com)
+   - Create a new project
+   - Import your repository
+   - Add the environment variable:
+     - `TELEGRAM_BOT_TOKEN`
 
-3. Configure environment variables in Netlify:
-   - Go to Site settings > Environment variables
-   - Add the following variables:
-     - `TELEGRAM_BOT_TOKEN`: Your Telegram bot token
-
-4. Deploy your site:
-   ```bash
-   # Deploy to production
-   netlify deploy --prod
+3. After deployment, set up the webhook:
+   - Replace `YOUR_BOT_TOKEN` and `YOUR_VERCEL_URL` in the following URL:
    ```
-
-5. After deployment, set up the webhook:
-   - Replace `YOUR_BOT_TOKEN` and `YOUR_NETLIFY_URL` in the following URL:
-   ```
-   https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook?url=YOUR_NETLIFY_URL/.netlify/functions/webhook
+   https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook?url=https://YOUR_VERCEL_URL/api/webhook
    ```
    - Visit the URL in your browser to set up the webhook
 
 ## Usage
 
 ### Web Interface
-Visit your deployed Netlify URL to access the web interface.
+Visit your deployed Vercel URL to access the web interface.
 
 ### Telegram Bot
 1. Start a chat with your bot on Telegram
