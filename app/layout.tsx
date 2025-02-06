@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/header";
+import { Providers } from "./providers";
 import { geistSans, geistMono } from "./fonts";
 import "./globals.css";
 
@@ -19,17 +19,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <Header />
           <main className="min-h-screen">
             {children}
           </main>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
