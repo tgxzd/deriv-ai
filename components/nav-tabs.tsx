@@ -1,8 +1,8 @@
 "use client"
 
-import { BarChart3, Activity, Wallet } from "lucide-react"
+import { BarChart3, Activity, Wallet, TrendingUp, Sparkles, Layers, Users2, Copy } from "lucide-react"
 
-type Tab = 'recent' | 'holdings' | 'activity'
+type Tab = 'recent' | 'holdings' | 'activity' | 'trending' | 'meme' | 'new-pair' | 'copy-trade' | 'follow'
 
 interface NavTabsProps {
   activeTab: Tab
@@ -55,7 +55,7 @@ export function NavTabs({ activeTab, onTabChange }: NavTabsProps) {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="grid grid-cols-3 gap-2 md:hidden">
+      <div className="grid grid-cols-4 gap-2 md:hidden">
         {tabs.map((tab) => {
           const Icon = tab.icon
           return (
